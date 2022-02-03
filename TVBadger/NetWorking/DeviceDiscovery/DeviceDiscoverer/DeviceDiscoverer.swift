@@ -42,7 +42,6 @@ extension DeviceDiscovery: SSDPDiscoveryDelegate {
     
    public func closedSession(_ session: SSDPDiscoverySession) {
        print("Session closed\n")
-       print(self.delegate?.closedSearch())
    }
 }
 
@@ -53,7 +52,7 @@ extension DeviceDiscovery: DeviceDiscoveryProtocol {
     }
     
     func stopSearch() {
-        stopSearch()
+        stopSearching()
     }
 }
 

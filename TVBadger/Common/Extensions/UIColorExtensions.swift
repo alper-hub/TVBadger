@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 extension UIColor {
-    static let mainBackgroundColor = "171822".hexStringToUIColor()
+    static let mainBackgroundColor = "181B26".hexStringToUIColor()
+    static let tintColor = "EDEEF7".hexStringToUIColor()
     static let color2 = "171822".hexStringToUIColor()
-    static let color3 = "99FEFF".hexStringToUIColor()
     static let color4 = "88FFF7".hexStringToUIColor()
     static let color5 = "B983FF".hexStringToUIColor()
     static let color6 = "94B3FD".hexStringToUIColor()
@@ -29,4 +29,5 @@ extension UIColor {
     static let color18 = "113CFC".hexStringToUIColor()
     static let color19 = "1597E5".hexStringToUIColor()
     static let color20 = "69DADB".hexStringToUIColor()
+    
 }

@@ -20,7 +20,7 @@ class SettingsViewController: BaseViewController {
         setupNavBarUI(
             title: "Settings",
             isLargeText: true,
-            titleTextColor: .color3,
+            titleTextColor: .tintColor,
             backgroundColor: .mainBackgroundColor,
             isBarHidden: false
         )

@@ -33,7 +33,7 @@ class ConnectionViewController: BaseViewController {
         setupNavBarUI(
             title: "Search & Connect",
             isLargeText: true,
-            titleTextColor: .color3,
+            titleTextColor: .tintColor,
             backgroundColor: .mainBackgroundColor,
             isBarHidden: false
         )

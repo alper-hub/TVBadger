@@ -29,7 +29,7 @@ class TabBarController: UITabBarController {
     // MARK: Tab Bar Item Colors
 
     private func setupTabBarColors() {
-        tabBar.tintColor = .color3
+        tabBar.tintColor = .tintColor
         tabBar.unselectedItemTintColor = .darkGray
         tabBar.backgroundColor = .mainBackgroundColor
         tabBar.barTintColor = .mainBackgroundColor

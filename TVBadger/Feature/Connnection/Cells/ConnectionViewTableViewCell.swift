@@ -9,9 +9,9 @@ import UIKit
 
 class ConnectionViewTableViewCell: UITableViewCell {
 
-    private lazy var IconImage: UIImageView = {
+    private lazy var iconImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "TVSymbol")
+        imageView.image = UIImage(named: "tvIcon")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -19,6 +19,7 @@ class ConnectionViewTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
+        prepareUI()
     }
 
     required init?(coder: NSCoder) {
@@ -26,6 +27,13 @@ class ConnectionViewTableViewCell: UITableViewCell {
     }
 
     private func prepareUI() {
+        contentView.addSubview(iconImage)
+        contentView.backgroundColor = .mainBackgroundColor
+        iconImage.activateConstraints(constraints: [
+            .top(contentView.topAnchor),
+            .bottom(contentView.bottomAnchor),
+            .left(contentView.leftAnchor),
+            .width(100)
+        ])
     }
-    
 }

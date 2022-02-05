@@ -6,3 +6,18 @@
 //
 
 import Foundation
+
+protocol ConnectionViewModelProtocol: AnyObject {
+    
+}
+
+protocol ConnectionViewModelDelegate: AnyObject {
+    func handleViewMdelOutput(_ output: Output)
+}
+
+enum Output {
+    case searching
+    case foundServices
+    case noServiceFound
+    case error
+}

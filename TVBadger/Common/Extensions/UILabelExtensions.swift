@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 extension UILabel {
-    
     static func funcMakeLabel(
         text: String? = nil,
         font: UIFont? = nil,
@@ -23,6 +22,7 @@ extension UILabel {
         label.textColor = color
         label.textAlignment = textAlignment
         label.numberOfLines = numberOfLines
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }
 }

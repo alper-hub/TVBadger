@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+class ConnectionViewModel: ConnectionViewModelProtocol {
+    
+    weak var delegate: ConnectionViewModelDelegate?
+    
+    init(delegate: ConnectionViewModelDelegate) {
+        self.delegate = delegate
+    }
+}

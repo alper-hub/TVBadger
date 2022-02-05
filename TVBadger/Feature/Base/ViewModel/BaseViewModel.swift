@@ -14,7 +14,7 @@ class BaseViewModel {
     weak var webSocketDelegate: WebSocketDelegate?
     weak var webSocketProtocol: WebSocketProtocol?
     weak var deviceDiscoveryProtocol: DeviceDiscoveryProtocol?
-    weak var viewModelDelegate: BaseViewModelDelegate?
+    weak var delegate: BaseViewModelDelegate?
 
     // MARK: Variables
 
@@ -23,11 +23,12 @@ class BaseViewModel {
     
     // MARK: Init
 
-    init() {
+    init(delegate: BaseViewModelDelegate?) {
         self.webSocketProtocol = webSockets
         webSocketDelegate = self
         deviceDiscoverer.delegate = self
         deviceDiscoveryProtocol = deviceDiscoverer
+        self.delegate = delegate
     }
 }
 

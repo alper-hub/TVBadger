@@ -17,7 +17,7 @@ class SettingsViewController: BaseViewController {
 
     private func setupUI() {
         view.backgroundColor = .mainBackgroundColor
-        setupNavBarUI(
+        navigationController?.setupNavBarUI(
             title: "Settings",
             isLargeText: true,
             titleTextColor: .tintColor,

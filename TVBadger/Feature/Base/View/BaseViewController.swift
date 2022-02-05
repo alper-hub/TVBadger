@@ -11,8 +11,7 @@ class BaseViewController: UIViewController {
 
     // MARK: Properties
 
-    var viewModel = BaseViewModel()
-    weak var viewModelProtocol: BaseViewModelProtocol?
+    private var viewModel: BaseViewModelProtocol?
     
     // MARK: Life Cycle
 
@@ -22,43 +21,13 @@ class BaseViewController: UIViewController {
     }
     
     private func setupViewModel() {
-        self.viewModelProtocol = viewModel
-        viewModel.viewModelDelegate = self
+       viewModel = BaseViewModel(delegate: self)
     }
 
     // MARK: Device Discovery
 
     func startSearch() {
-        viewModelProtocol?.searchForDevices()
-    }
-
-    // MARK: Setup NavBar UI
-
-    func setupNavBarUI(
-        title: String,
-        isLargeText: Bool,
-        titleTextColor: UIColor,
-        backgroundColor: UIColor?,
-        isBarHidden: Bool
-    ) {
-        navigationController?.navigationBar.prefersLargeTitles = isLargeText
-        navigationItem.title = title
-        navigationController?.navigationBar.isHidden = isBarHidden
-        if #available(iOS 13.0, *) {
-            let appearance = UINavigationBarAppearance()
-            appearance.backgroundColor = backgroundColor
-            appearance.titleTextAttributes = [.foregroundColor: titleTextColor]
-            appearance.largeTitleTextAttributes = [.foregroundColor: titleTextColor]
-        
-            navigationController?.navigationBar.tintColor = backgroundColor
-            navigationController?.navigationBar.standardAppearance = appearance
-            navigationController?.navigationBar.compactAppearance = appearance
-            navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        } else {
-            navigationController?.navigationBar.tintColor = backgroundColor
-            navigationController?.navigationBar.barTintColor = backgroundColor
-            navigationController?.navigationBar.isTranslucent = false
-        }
+        viewModel?.searchForDevices()
     }
 }
 

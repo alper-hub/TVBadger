@@ -37,4 +37,20 @@ public extension UIView {
         }
         return constraints
     }
+
+    func activateConstraints(constraints: [ConstraintAnchors]) {
+        NSLayoutConstraint.activate(self.constraints(with: constraints))
+    }
+
+    func coverSafeArea() {
+        guard let sv = superview else {
+            return
+        }
+        self.activateConstraints(constraints: [
+            .top(sv.safeAreaLayoutGuide.topAnchor),
+            .bottom(sv.safeAreaLayoutGuide.bottomAnchor),
+            .left(sv.safeAreaLayoutGuide.leftAnchor),
+            .right(sv.safeAreaLayoutGuide.rightAnchor)
+        ])
+    }
 }

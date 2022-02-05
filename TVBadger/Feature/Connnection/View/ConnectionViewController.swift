@@ -11,9 +11,14 @@ class ConnectionViewController: BaseViewController {
 
     // MARK: Properties
 
+    private var viewModel: ConnectionViewModelProtocol?
+    
     let tableView: UITableView = {
         let table = UITableView()
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        table.backgroundColor = .mainBackgroundColor
+        table.translatesAutoresizingMaskIntoConstraints = false
+        ConnectionViewTableViewCell.register(to: table)
+        ConnectionTableViewSectionHeader.register(to: table)
         return table
     }()
 
@@ -22,15 +27,28 @@ class ConnectionViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupTableView()
+        setUpViewModel()
+    }
+
+    // MARK: Setup View Model
+
+    func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+    }
+
+    // MARK: Setup View Model
+
+    func setUpViewModel() {
+        viewModel = ConnectionViewModel(delegate: self)
     }
 
     // MARK: SetupUI
 
     private func setupUI() {
         view.backgroundColor = .mainBackgroundColor
-        setupNavBarUI(
+        self.navigationController?.setupNavBarUI(
             title: "Search & Connect",
             isLargeText: true,
             titleTextColor: .tintColor,
@@ -43,15 +61,8 @@ class ConnectionViewController: BaseViewController {
     // MARK: SetupTableViewUI
 
     func setupTableViewUI() {
-        tableView.backgroundColor = .mainBackgroundColor
-        tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
-        NSLayoutConstraint.activate(tableView.constraints(with: [
-            .top(view.safeAreaLayoutGuide.topAnchor),
-            .bottom(view.safeAreaLayoutGuide.bottomAnchor),
-            .left(view.safeAreaLayoutGuide.leftAnchor),
-            .right(view.safeAreaLayoutGuide.rightAnchor)
-        ]))
+        tableView.coverSafeArea()
     }
 }
 
@@ -64,10 +75,31 @@ extension ConnectionViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "annen \(indexPath.row+1)"
-        cell.textLabel?.textColor = .white
-        cell.backgroundColor = .mainBackgroundColor
+        let cell: ConnectionViewTableViewCell = tableView.dequeue(for: indexPath)
+
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header: ConnectionTableViewSectionHeader = tableView.dequeueHeader()
+        return header
+    }
+}
+
+// MARK: ViewModel Delegate
+
+extension ConnectionViewController: ConnectionViewModelDelegate {
+
+    func handleViewMdelOutput(_ output: Output) {
+        switch output {
+        case .searching:
+            break
+        case .foundServices:
+            break
+        case .noServiceFound:
+            break
+        case .error:
+            break
+        }
     }
 }

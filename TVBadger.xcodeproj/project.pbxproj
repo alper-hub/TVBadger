@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		554F4A3F27AC9FCC0008303F /* UINavigationControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F4A3E27AC9FCC0008303F /* UINavigationControllerExtensions.swift */; };
+		554F4A4127ADABB30008303F /* ConnectionTableViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F4A4027ADABB30008303F /* ConnectionTableViewSectionHeader.swift */; };
+		554F4A4327ADD6350008303F /* BaseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F4A4227ADD6350008303F /* BaseTableView.swift */; };
+		554F4A4627AEABAC0008303F /* BaseTableViewCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F4A4527AEABAC0008303F /* BaseTableViewCellProtocol.swift */; };
 		558AD5562766A7BA008D1CDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558AD5552766A7BA008D1CDC /* AppDelegate.swift */; };
 		558AD5582766A7BA008D1CDC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558AD5572766A7BA008D1CDC /* SceneDelegate.swift */; };
 		558AD55F2766A7BE008D1CDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 558AD55E2766A7BE008D1CDC /* Assets.xcassets */; };
@@ -66,6 +70,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		554F4A3E27AC9FCC0008303F /* UINavigationControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtensions.swift; sourceTree = "<group>"; };
+		554F4A4027ADABB30008303F /* ConnectionTableViewSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionTableViewSectionHeader.swift; sourceTree = "<group>"; };
+		554F4A4227ADD6350008303F /* BaseTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableView.swift; sourceTree = "<group>"; };
+		554F4A4527AEABAC0008303F /* BaseTableViewCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCellProtocol.swift; sourceTree = "<group>"; };
 		558AD5522766A7BA008D1CDC /* TVBadger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVBadger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		558AD5552766A7BA008D1CDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		558AD5572766A7BA008D1CDC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +153,15 @@
 				E1DC22FCCC8045095F9905B6 /* Pods_TVBadger.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		554F4A4427AEAB8B0008303F /* BaseTableView */ = {
+			isa = PBXGroup;
+			children = (
+				554F4A4227ADD6350008303F /* BaseTableView.swift */,
+				554F4A4527AEABAC0008303F /* BaseTableViewCellProtocol.swift */,
+			);
+			path = BaseTableView;
 			sourceTree = "<group>";
 		};
 		558AD5492766A7BA008D1CDC = {
@@ -252,6 +269,7 @@
 		558AD59F2766AB93008D1CDC /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				554F4A4427AEAB8B0008303F /* BaseTableView */,
 				558AD5AB276785ED008D1CDC /* ViewModel */,
 				558AD5AA276785E7008D1CDC /* View */,
 				558D018D278BA3100099CF87 /* TabBarController.swift */,
@@ -315,6 +333,7 @@
 				558D01A0279D70330099CF87 /* UIViewExtensions.swift */,
 				558D01A2279D73DB0099CF87 /* ConstraintAnchors.swift */,
 				558D01A7279DF7740099CF87 /* UILabelExtensions.swift */,
+				554F4A3E27AC9FCC0008303F /* UINavigationControllerExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -393,6 +412,7 @@
 			isa = PBXGroup;
 			children = (
 				558D01A5279DCCD80099CF87 /* ConnectionViewTableViewCell.swift */,
+				554F4A4027ADABB30008303F /* ConnectionTableViewSectionHeader.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -583,7 +603,9 @@
 				558AD5A12766ABAA008D1CDC /* BaseViewController.swift in Sources */,
 				558D0195279755900099CF87 /* SettingsViewModelContracts.swift in Sources */,
 				558AD58F2766A9EA008D1CDC /* SSDPDiscoverySession.swift in Sources */,
+				554F4A4627AEABAC0008303F /* BaseTableViewCellProtocol.swift in Sources */,
 				558AD59E2766AB61008D1CDC /* DeviceDiscovererContracts.swift in Sources */,
+				554F4A4327ADD6350008303F /* BaseTableView.swift in Sources */,
 				558AD58D2766A9BC008D1CDC /* SSDPDiscovery.swift in Sources */,
 				558D0187278B44B20099CF87 /* ConnectionViewModelContracts.swift in Sources */,
 				558D0185278B44A40099CF87 /* ConnectionViewModel.swift in Sources */,
@@ -597,6 +619,7 @@
 				558D01A8279DF7740099CF87 /* UILabelExtensions.swift in Sources */,
 				558AD5AD27678602008D1CDC /* BaseViewModelContracts.swift in Sources */,
 				558AD5932766AA28008D1CDC /* SSDPMSearchResponse.swift in Sources */,
+				554F4A4127ADABB30008303F /* ConnectionTableViewSectionHeader.swift in Sources */,
 				558D01A1279D70330099CF87 /* UIViewExtensions.swift in Sources */,
 				558D019F279C21240099CF87 /* NameDescribable.swift in Sources */,
 				558AD5562766A7BA008D1CDC /* AppDelegate.swift in Sources */,
@@ -613,6 +636,7 @@
 				558AD5A42766B045008D1CDC /* WebSocket.swift in Sources */,
 				558D01A6279DCCD80099CF87 /* ConnectionViewTableViewCell.swift in Sources */,
 				558D0199279755AB0099CF87 /* SettingsViewController.swift in Sources */,
+				554F4A3F27AC9FCC0008303F /* UINavigationControllerExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

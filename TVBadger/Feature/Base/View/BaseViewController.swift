@@ -24,6 +24,22 @@ class BaseViewController: UIViewController {
        viewModel = BaseViewModel(delegate: self)
     }
 
+    func setupNavBarUI(
+        title: String,
+        isLargeText: Bool,
+        titleTextColor: UIColor,
+        backgroundColor: UIColor?,
+        isBarHidden: Bool
+    ) {
+        self.navigationController?.setupNavBarUI(
+            title: "Search & Connect",
+            isLargeText: true,
+            titleTextColor: .tintColor,
+            backgroundColor: .mainBackgroundColor,
+            isBarHidden: false
+        )
+    }
+
     // MARK: Device Discovery
 
     func startSearch() {

@@ -8,7 +8,7 @@
 import UIKit
 
 extension UITableView {
-    
+
     func dequeue<T: UITableViewCell>(withIdentifier identifier: String = T.typeName, for indexPath: IndexPath) -> T {
         guard let cell = self.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? T else {
             fatalError("Could not dequeue cell with identifier \(identifier) from tableView \(self)")
@@ -21,9 +21,5 @@ extension UITableView {
             fatalError("Could not dequeue header/footer with identifier \(identifier) from tableView \(self)")
         }
         return headerFooterView
-    }
-
-    static func buildTableView() {
-        
     }
 }

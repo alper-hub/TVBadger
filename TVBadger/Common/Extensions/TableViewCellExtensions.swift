@@ -19,3 +19,4 @@ extension UITableViewHeaderFooterView {
         tableView?.register(self, forHeaderFooterViewReuseIdentifier: self.typeName)
     }
 }
+

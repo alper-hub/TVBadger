@@ -12,9 +12,8 @@ class ConnectionTableViewSectionHeader: UITableViewHeaderFooterView {
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel.funcMakeLabel(
-            text: "Online TVs",
-            font: UIFont(name: "Helvetica", size: 16.0),
-            color: .white,
+            font: UIFont(name: "Helvetica-Bold", size: 25),
+            color: .tintColor,
             textAlignment: .left,
             numberOfLines: 0
         )
@@ -32,12 +31,18 @@ class ConnectionTableViewSectionHeader: UITableViewHeaderFooterView {
     
     private func prepareUI() {
         contentView.backgroundColor = .mainBackgroundColor
-        contentView.addSubview(titleLabel)
-        titleLabel.activateConstraints(constraints: [
-            .top(contentView.topAnchor),
-            .bottom(contentView.bottomAnchor),
-            .left(contentView.leftAnchor, 15),
-            .width(100)
+        contentView.addSubViewWithConstraints(newView: titleLabel, constraints: [
+            .top(contentView.topAnchor, UIConstants.padding),
+            .bottom(contentView.bottomAnchor, -UIConstants.padding),
+            .left(contentView.leftAnchor, UIConstants.padding),
+            .right(contentView.rightAnchor, -UIConstants.padding)
         ])
+    }
+}
+
+extension ConnectionTableViewSectionHeader: BaseTableViewHeaderFooterViewProtocol {
+
+    func setupCell(data: Any) {
+        titleLabel.text = data as? String
     }
 }

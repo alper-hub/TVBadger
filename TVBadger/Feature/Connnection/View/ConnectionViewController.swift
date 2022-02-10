@@ -12,30 +12,14 @@ class ConnectionViewController: BaseViewController {
     // MARK: Properties
 
     private var viewModel: ConnectionViewModelProtocol?
-    
-    let tableView: UITableView = {
-        let table = UITableView()
-        table.backgroundColor = .mainBackgroundColor
-        table.translatesAutoresizingMaskIntoConstraints = false
-        ConnectionViewTableViewCell.register(to: table)
-        ConnectionTableViewSectionHeader.register(to: table)
-        return table
-    }()
+    private var tableView: BaseTableView<ConnectionViewTableViewCell, ConnectionTableViewSectionHeader>!
 
     // MARK: Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        setupTableView()
         setUpViewModel()
-    }
-
-    // MARK: Setup View Model
-
-    func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
     }
 
     // MARK: Setup View Model
@@ -48,41 +32,50 @@ class ConnectionViewController: BaseViewController {
 
     private func setupUI() {
         view.backgroundColor = .mainBackgroundColor
-        self.navigationController?.setupNavBarUI(
+        setupNavBarUI(
             title: "Search & Connect",
             isLargeText: true,
             titleTextColor: .tintColor,
             backgroundColor: .mainBackgroundColor,
             isBarHidden: false
         )
-        setupTableViewUI()
+        tableView = BaseTableView(
+            items: [],
+            selectHandler: { [weak self] (item) in },
+            backgroundColor: .mainBackgroundColor
+        )
+        view.coverSafeArea(newView: tableView)
+        buildError()
     }
 
-    // MARK: SetupTableViewUI
-
-    func setupTableViewUI() {
-        view.addSubview(tableView)
-        tableView.coverSafeArea()
-    }
-}
-
-// MARK: TableView Methods
-
-extension ConnectionViewController: UITableViewDelegate, UITableViewDataSource {
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+    private func buildSearching() {
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: ConnectionViewTableViewCell = tableView.dequeue(for: indexPath)
+    private func buildFoundServices() {
+        let tableData = ConnectionTableViewCellDataModel(viewType: .loading, name: "[TV] Samsung 5 Series(40)")
+        let tableData2 = ConnectionTableViewCellDataModel(viewType: .onlineTV, name: "[TV] Samsung 5 Series(40)")
+        let items = [
+            TableItems(headerTitle: nil, cellItems: [tableData]),
+            TableItems(headerTitle: "Previously Connected", cellItems: [tableData2, tableData2])
+        ]
 
-        return cell
+        tableView = BaseTableView(
+            items: items,
+            selectHandler: { [weak self] (item) in
+                guard let cellData = item as? ConnectionTableViewCellDataModel else {
+                    return
+                }
+            },
+            backgroundColor: .mainBackgroundColor
+        )
     }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header: ConnectionTableViewSectionHeader = tableView.dequeueHeader()
-        return header
+
+    private func buildNoServiceFound() {
+    }
+
+    private func buildError() {
+        tableView.reload(data: [])
+        tableView.backgroundView = BaseTableBackgroundView()
     }
 }
 
@@ -93,13 +86,13 @@ extension ConnectionViewController: ConnectionViewModelDelegate {
     func handleViewMdelOutput(_ output: Output) {
         switch output {
         case .searching:
-            break
+            buildSearching()
         case .foundServices:
-            break
+            buildFoundServices()
         case .noServiceFound:
-            break
+            buildNoServiceFound()
         case .error:
-            break
+            buildError()
         }
     }
 }

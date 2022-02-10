@@ -6,7 +6,12 @@
 //
 
 import Foundation
+import UIKit
 
-protocol BaseTableViewCellProtocol: AnyObject {
-    var cellData: Any { get set }
+protocol BaseTableViewCellProtocol where Self: UITableViewCell {
+    func setupCell(data: Any)
+}
+
+protocol BaseTableViewHeaderFooterViewProtocol where Self: UITableViewHeaderFooterView {
+    func setupCell(data: Any)
 }

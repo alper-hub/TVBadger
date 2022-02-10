@@ -30,7 +30,7 @@ class TabBarController: UITabBarController {
 
     private func setupTabBarColors() {
         tabBar.tintColor = .tintColor
-        tabBar.unselectedItemTintColor = .darkGray
+        tabBar.unselectedItemTintColor = .disabledColor
         tabBar.backgroundColor = .mainBackgroundColor
         tabBar.barTintColor = .mainBackgroundColor
         tabBar.isTranslucent = false
@@ -43,7 +43,7 @@ class TabBarController: UITabBarController {
             createNavController(
                 for:  ConnectionViewController(),
                    tabBarItemTitle: nil,
-                   image: UIImage(named: "tvIcon")
+                   image: UIImage(named: "TVSymbol")
             ),
             createNavController(
                 for: SettingsViewController(),

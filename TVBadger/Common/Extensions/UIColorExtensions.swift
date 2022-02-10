@@ -11,7 +11,7 @@ import UIKit
 extension UIColor {
     static let mainBackgroundColor = "181B26".hexStringToUIColor()
     static let tintColor = "EDEEF7".hexStringToUIColor()
-    static let color2 = "171822".hexStringToUIColor()
+    static let disabledColor = "24A19C".hexStringToUIColor()
     static let color4 = "88FFF7".hexStringToUIColor()
     static let color5 = "B983FF".hexStringToUIColor()
     static let color6 = "94B3FD".hexStringToUIColor()
